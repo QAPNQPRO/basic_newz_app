@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h3>Top Headlines</h3>
+<div class="row">
+  {% for article in news %}
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 shadow-sm">
+        {% if article.urlToImage %}
+          <img src="{{ article.urlToImage }}" class="card-img-top" style="height: 180px; object-fit: cover;">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ article.title }}</h5>
+          <p class="card-text">{{ article.description or '' }}</p>
+          <a href="{{ article.url }}" target="_blank" class="btn btn-outline-primary btn-sm">Read more</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
