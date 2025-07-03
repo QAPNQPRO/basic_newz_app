@@ -1,4 +1,4 @@
 user_data/
 __pycache__
 venv/
-.env
+app/.env
